@@ -31,8 +31,8 @@ function createBoard(color, user) {
     }
     gamesBoardContainer.append(gameBoardContainer)
 }
-createBoard('yellow', 'player')
-createBoard('pink', 'computer')
+createBoard('#0D3780', 'player')
+createBoard('#0D3780', 'computer')
 
 /* Creating Ships */
 class Ship {
@@ -159,7 +159,7 @@ function dropShip(e) {
     function startGame() {
         if (playerTurn === undefined) {
         if(optionContainer.children.length !=0) {
-            infoDisplay.textContent= 'Please place all your pieces first!'
+            infoDisplay.textContent= 'Please drag all your ships onto the board before starting'
         } else {
             const allBoardBlocks=document.querySelectorAll('#computer div')
             allBoardBlocks.forEach(block => block.addEventListener('click', handleClick))
@@ -193,7 +193,7 @@ function handleClick(e) {
             e.target.classList.add('empty')
         }
         playerTurn = false
-        const allBoardBlocks=document.querySelectorAll('#comnputer div')
+        const allBoardBlocks=document.querySelectorAll('#computer div')
         allBoardBlocks.forEach(block => block.replaceWith(block.cloneNode(true)))
         setTimeout(computerGo, 3000)
     }
